@@ -1,0 +1,13 @@
+package org.techhub.expensetrackerrestapi;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ExpenseTrackerRestApiApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ExpenseTrackerRestApiApplication.class, args);
+    }
+
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+        }
+
+        .container {
+            width: 450px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #3498db;
+        }
+
+        textarea {
+            resize: none;
+            height: 90px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #3498db;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .dashboard-btn {
+            margin-top: 10px;
+            background: #2ecc71;
+        }
+
+        .dashboard-btn:hover {
+            background: #27ae60;
+        }
+
+        .message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>💰 Add New Expense</h2>
+
+    <form id="expenseForm">
+
+        <div class="form-group">
+            <label>Expense Title</label>
+            <input type="text" id="title" placeholder="Enter expense title" required>
+        </div>
+
+        <div class="form-group">
+            <label>Amount</label>
+            <input type="number" id="amount" placeholder="Enter amount" required>
+        </div>
+
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="date" required>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea id="description" placeholder="Enter description"></textarea>
+        </div>
+
+        <!-- ✅ CATEGORY DROPDOWN -->
+        <div class="form-group">
+            <label>Category</label>
+            <select id="categoryId" required>
+                <option value="">Loading categories...</option>
+            </select>
+        </div>
+
+        <button type="submit">Save Expense</button>
+    </form>
+
+    <div id="message" class="message"></div>
+
+    <button class="dashboard-btn"
+            onclick="window.location.href='/Html/dashboard.html'">
+        Back To Dashboard
+    </button>
+
+</div>
+
+<script src="/js/expense.js"></script>
+
+</body>
+</html>

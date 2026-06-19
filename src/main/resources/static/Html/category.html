@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Categories</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#11998e,#38ef7d);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:500px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,.2);
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:20px;
+            color:#2c3e50;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ddd;
+            border-radius:8px;
+            margin-bottom:15px;
+            font-size:15px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            background:#27ae60;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#219150;
+        }
+
+        #message{
+            margin-top:15px;
+            text-align:center;
+            font-weight:bold;
+        }
+
+        ul{
+            list-style:none;
+            margin-top:20px;
+        }
+
+        li{
+            background:#f4f6f9;
+            padding:12px;
+            margin-bottom:10px;
+            border-radius:8px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .dashboard-btn{
+            margin-top:15px;
+            background:#3498db;
+        }
+
+        .dashboard-btn:hover{
+            background:#2980b9;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    ```
+    <h2>📂 Category Management</h2>
+
+    <form id="categoryForm">
+
+        <input
+                type="text"
+                id="categoryName"
+                placeholder="Enter Category Name"
+                required>
+
+        <button type="submit">
+            Add Category
+        </button>
+
+    </form>
+
+    <div id="message"></div>
+
+    <ul id="categories"></ul>
+
+    <button
+            class="dashboard-btn"
+            onclick="window.location.href='/Html/dashboard.html'">
+        Back To Dashboard
+    </button>
+    ```
+
+</div>
+
+<script src="/js/category.js"></script>
+
+</body>
+</html>
