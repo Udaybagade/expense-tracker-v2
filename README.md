@@ -26,7 +26,7 @@ A full-stack Expense Tracker application built using Spring Boot, Spring Securit
 1. Clone repository
 2. Create MySQL database
 3. Update application.properties
-4. Run application
+4. Run application using http://localhost:8080/ url
 
 ```bash
 mvn spring-boot:run
