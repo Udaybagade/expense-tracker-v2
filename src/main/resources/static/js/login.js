@@ -1,73 +1,50 @@
-const loginForm =
-document.getElementById("loginForm");
+const loginForm = document.getElementById("loginForm");
+const messageBox = document.getElementById("message");
 
-const messageBox =
-document.getElementById("message");
-
-loginForm.addEventListener(
-"submit",
-async function(e){
-
+loginForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const email =
-    document.getElementById("email").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-    const password =
-    document.getElementById("password").value;
-
-    try{
-
-        const response =
-        await fetch(
-        "http://localhost:8080/api/auth/login",
-        {
-            method:"POST",
-
-            headers:{
-                "Content-Type":"application/json"
+    try {
+        const response = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
             },
-
-            body:JSON.stringify({
-                email:email,
-                password:password
+            body: JSON.stringify({
+                email: email,
+                password: password
             })
         });
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error("Invalid Credentials");
         }
 
-        const data =
-        await response.json();
+        const data = await response.json();
 
-        localStorage.setItem(
-        "token",
-        data.token
-        );
+        if (!data.token) {
+            throw new Error("Login response does not contain a token");
+        }
 
-        messageBox.style.color =
-        "green";
+        localStorage.setItem("token", data.token);
 
-        messageBox.innerText =
-        "Login Successful ✔";
+        messageBox.style.color = "green";
+        messageBox.innerText = "Login Successful ✔";
 
         setTimeout(() => {
+            window.location.href = "/Html/dashboard.html";
+        }, 1000);
 
-            window.location.href =
-            "dashboard.html";
+    } catch (error) {
+        console.error("Login error:", error);
 
-        },1000);
-
-    }
-    catch(error){
-
-        console.error(error);
-
-        messageBox.style.color =
-        "red";
-
+        messageBox.style.color = "red";
         messageBox.innerText =
-        "Invalid Email or Password ❌";
+            error.message === "Invalid Credentials"
+                ? "Invalid Email or Password ❌"
+                : "Login failed. Please try again.";
     }
 });
